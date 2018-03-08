@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7d9e92c7-2814-4cd0-9f81-37008365f855" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:51199/WSCorresponsales.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WSCorresponsales.xsd" MetadataType="Schema" ID="ebca8783-cef2-49e7-aa1f-05db59569b25" SourceId="1" SourceUrl="http://localhost:51199/WSCorresponsales.svc?xsd=xsd2" />
+    <MetadataFile FileName="WSCorresponsales.disco" MetadataType="Disco" ID="b3929882-4b0e-48ef-9c3a-dd3c55218ec1" SourceId="1" SourceUrl="http://localhost:51199/WSCorresponsales.svc?disco" />
+    <MetadataFile FileName="WSCorresponsalesImpl.wsdl" MetadataType="Wsdl" ID="9c24eb15-6ee9-4386-896e-b58970b0e644" SourceId="1" SourceUrl="http://localhost:51199/WSCorresponsales.svc?wsdl" />
+    <MetadataFile FileName="WSCorresponsales1.xsd" MetadataType="Schema" ID="4f584048-fa48-4d06-ade8-2492b3ac8c10" SourceId="1" SourceUrl="http://localhost:51199/WSCorresponsales.svc?xsd=xsd1" />
+    <MetadataFile FileName="WSCorresponsales2.xsd" MetadataType="Schema" ID="0148711f-63af-4606-b31f-a63568f83b07" SourceId="1" SourceUrl="http://localhost:51199/WSCorresponsales.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -5,6 +5,31 @@ VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSCorresponsales", "WSCorresponsales\WSCorresponsales.csproj", "{24223CAD-E3ED-485D-95CB-5311B11D1683}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebCorresponsalesTest", "WebCorresponsalesTest\", "{8E679FBF-AE7D-491C-B88A-86B9DF3EABE8}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_50298"
+		Debug.AspNetCompiler.PhysicalPath = "WebCorresponsalesTest\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50298\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_50298"
+		Release.AspNetCompiler.PhysicalPath = "WebCorresponsalesTest\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50298\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "50298"
+		SlnRelativePath = "WebCorresponsalesTest\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+	ProjectSection(ProjectDependencies) = postProject
+		{24223CAD-E3ED-485D-95CB-5311B11D1683} = {24223CAD-E3ED-485D-95CB-5311B11D1683}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +40,10 @@ Global
 		{24223CAD-E3ED-485D-95CB-5311B11D1683}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24223CAD-E3ED-485D-95CB-5311B11D1683}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24223CAD-E3ED-485D-95CB-5311B11D1683}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E679FBF-AE7D-491C-B88A-86B9DF3EABE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E679FBF-AE7D-491C-B88A-86B9DF3EABE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E679FBF-AE7D-491C-B88A-86B9DF3EABE8}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E679FBF-AE7D-491C-B88A-86B9DF3EABE8}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

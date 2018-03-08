@@ -23,18 +23,18 @@ namespace WSCorresponsales
 
         public List<Corresponsal> obtenerCorresponsales()
         {
-            /*string sql = "SELECT COR_CORRESPONSAL_ID, COR_NOMBRE, COUNT(O.OFI_CORRESPONSAL_ID) AS COR_NRO_OFI " +
+            string sql = "SELECT COR_CORRESPONSAL_ID, COR_NOMBRE, COUNT(O.OFI_CORRESPONSAL_ID) AS COR_NRO_OFI " +
                            "FROM CORRESPONSALES AS C " +
                          "INNER JOIN OFICINAS AS O " +
                              "ON O.OFI_CORRESPONSAL_ID = C.COR_CORRESPONSAL_ID " +
-                        "GROUP BY COR_CORRESPONSAL_ID, COR_NOMBRE;"*/
+                        "GROUP BY COR_CORRESPONSAL_ID, COR_NOMBRE;"
             ;
 
-            string sql = "SELECT C.COR_CORRESPONSAL_ID, C.COR_NOMBRE, OFI_NOMBRE " +
+           /* string sql = "SELECT C.COR_CORRESPONSAL_ID, C.COR_NOMBRE, OFI_NOMBRE " +
                          "FROM CORRESPONSALES AS C " +
                        "INNER JOIN OFICINAS AS O " +
                            "ON O.OFI_CORRESPONSAL_ID = C.COR_CORRESPONSAL_ID " +
-                         "ORDER BY COR_NOMBRE;";
+                         "ORDER BY COR_NOMBRE;";*/
 
 
             using (SqlConnection cnn = new SqlConnection(cnnString))
@@ -52,7 +52,9 @@ namespace WSCorresponsales
 
                         id = Convert.ToInt32(dr["COR_CORRESPONSAL_ID"]),
                         nombre = dr["COR_NOMBRE"].ToString(),
-                        ofiNombre = dr["OFI_NOMBRE"].ToString()
+                        // ofiNombre = dr["OFI_NOMBRE"].ToString()
+
+                        nroOfi = Convert.ToInt32(dr["COR_NRO_OFI"])
                     };
 
                     
