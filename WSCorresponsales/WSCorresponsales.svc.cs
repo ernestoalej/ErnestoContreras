@@ -22,8 +22,12 @@ namespace WSCorresponsales
         }
 
         public Corresponsal obtenerCorresponsales()
-        {
-            string sql = "SELECT COR_CORRESPONSAL_ID, COR_NOMBRE FROM CORRESPONSALES;";
+        {            
+            string sql = "SELECT COR_CORRESPONSAL_ID, COR_NOMBRE, COUNT(O.OFI_CORRESPONSAL_ID) AS COR_NRO_OFI " +
+                           "FROM CORRESPONSALES AS C " +
+                         "INNER JOIN OFICINAS AS O " +
+                             "ON O.OFI_CORRESPONSAL_ID = C.COR_CORRESPONSAL_ID " +
+                        "GROUP BY COR_CORRESPONSAL_ID, COR_NOMBRE;";
 
             using (SqlConnection cnn = new SqlConnection(cnnString))
             {
@@ -37,8 +41,8 @@ namespace WSCorresponsales
                     Corresponsal corr = new Corresponsal() {
 
                         id = Convert.ToInt32(dr["COR_CORRESPONSAL_ID"]),
-                        nombre = dr["COR_NOMBRE"].ToString()
-
+                        nombre = dr["COR_NOMBRE"].ToString(),
+                        nroOfi = Convert.ToInt32(dr["COR_NRO_OFI"])
                     };
 
                     return corr;

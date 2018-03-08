@@ -27,6 +27,10 @@ namespace WSCorresponsales
 
         [DataMember]
         public string nombre  { get; set; }
+
+
+        [DataMember]
+        public int nroOfi { get; set; }
     }
 
 }
