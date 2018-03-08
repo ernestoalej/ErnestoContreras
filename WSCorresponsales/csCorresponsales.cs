@@ -13,7 +13,7 @@ namespace WSCorresponsales
     public interface IWSCorresponsales
     {
         [OperationContract]
-        Corresponsal obtenerCorresponsales();
+        List<Corresponsal> obtenerCorresponsales();
         
         // TODO: agregue aquí sus operaciones de servicio
     }
@@ -30,7 +30,7 @@ namespace WSCorresponsales
 
 
         [DataMember]
-        public int nroOfi { get; set; }
+        public string ofiNombre { get; set; }
     }
 
 }
