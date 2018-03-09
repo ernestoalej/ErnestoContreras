@@ -66,5 +66,40 @@ namespace WSCorresponsales
             }
             
         }
+
+
+        public Corresponsal obtenerCorresponsalOficinanaMaxLong(int corresponsalID)
+        {
+            string sql = "SELECT TOP 1 " +
+                            "C.COR_CORRESPONSAL_ID, C.COR_NOMBRE, O.OFI_NOMBRE " +
+                            "FROM Corresponsales AS C " +
+                            "INNER JOIN OFICINAS AS O " +
+                                   "ON C.COR_CORRESPONSAL_ID = O.OFI_CORRESPONSAL_ID " +
+                            "WHERE LEN(OFI_NOMBRE) = (SELECT MAX(LEN(OFI_NOMBRE)) FROM OFICINAS WHERE OFICINAS.OFI_CORRESPONSAL_ID = O.OFI_CORRESPONSAL_ID )" +
+                            "AND C.COR_CORRESPONSAL_ID = " + corresponsalID.ToString();
+
+            using (SqlConnection cnn = new SqlConnection(cnnString))
+            {
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand(sql, cnn);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                dr.Read();
+
+                Corresponsal corr = new Corresponsal()
+                    {
+                        id = Convert.ToInt32(dr["COR_CORRESPONSAL_ID"]),
+                        nombre = dr["COR_NOMBRE"].ToString(),
+                        ofiNombre = dr["OFI_NOMBRE"].ToString()
+
+                    };
+
+
+ 
+                return corr;
+            }
+    
+        }
     }
 }

@@ -15,7 +15,9 @@ namespace WSCorresponsales
         [OperationContract]
         List<Corresponsal> obtenerCorresponsales();
         
-        // TODO: agregue aquí sus operaciones de servicio
+        [OperationContract]
+        Corresponsal obtenerCorresponsalOficinanaMaxLong(int corresponsalID);
+
     }
 
 
@@ -29,8 +31,8 @@ namespace WSCorresponsales
         public string nombre  { get; set; }
 
 
-        /* [DataMember]
-         public string ofiNombre { get; set; }*/
+         [DataMember]
+         public string ofiNombre { get; set; }
 
         [DataMember]
         public int nroOfi { get; set; }
