@@ -27,15 +27,8 @@ namespace WSCorresponsales
                            "FROM CORRESPONSALES AS C " +
                          "INNER JOIN OFICINAS AS O " +
                              "ON O.OFI_CORRESPONSAL_ID = C.COR_CORRESPONSAL_ID " +
-                        "GROUP BY COR_CORRESPONSAL_ID, COR_NOMBRE;"
-            ;
-
-           /* string sql = "SELECT C.COR_CORRESPONSAL_ID, C.COR_NOMBRE, OFI_NOMBRE " +
-                         "FROM CORRESPONSALES AS C " +
-                       "INNER JOIN OFICINAS AS O " +
-                           "ON O.OFI_CORRESPONSAL_ID = C.COR_CORRESPONSAL_ID " +
-                         "ORDER BY COR_NOMBRE;";*/
-
+                        "GROUP BY COR_CORRESPONSAL_ID, COR_NOMBRE ORDER BY COR_NOMBRE;";
+     
 
             using (SqlConnection cnn = new SqlConnection(cnnString))
             {
