@@ -12,14 +12,19 @@
     <form id="form1" runat="server">
         <div>
 
-            <span>Corresponsales:</span><br/><br/>
+            <span style="font-weight:bold">Corresponsales:</span><br/><br/>
             <asp:DropDownList ID="ddlCorresponsales" runat="server" OnSelectedIndexChanged="ddlCorresponsales_SelectedIndexChanged" AutoPostBack="True">
             </asp:DropDownList>
 
             <br />
             <br />
             <hr />
-            <asp:Label ID="lblCorresponsalInfo" runat="server"></asp:Label>
+            
+            <span style="font-weight:bold">Corresponsal selecionado:</span><br />
+            <asp:Label ID="lblCorresponsal" runat="server"></asp:Label><br /><br />
+            
+            <span style="font-weight:bold">Oficina de mayor longitud:</span><br />
+            <asp:Label ID="lblOficinaLongMax" runat="server"></asp:Label>
 
         </div>
     </form>

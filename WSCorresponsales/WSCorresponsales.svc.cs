@@ -68,7 +68,7 @@ namespace WSCorresponsales
         }
 
 
-        public Corresponsal obtenerCorresponsalOficinanaMaxLong(int corresponsalID)
+        public Corresponsal obtenerCorresponsalOficinaMaxLong(int corresponsalID)
         {
             string sql = "SELECT TOP 1 " +
                             "C.COR_CORRESPONSAL_ID, C.COR_NOMBRE, O.OFI_NOMBRE " +
@@ -95,8 +95,6 @@ namespace WSCorresponsales
 
                     };
 
-
- 
                 return corr;
             }
     

@@ -13,4 +13,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="obtenerCorresponsalOficinaMaxLong">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="corresponsalID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="obtenerCorresponsalOficinaMaxLongResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WSCorresponsales" minOccurs="0" name="obtenerCorresponsalOficinaMaxLongResult" nillable="true" type="q2:Corresponsal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

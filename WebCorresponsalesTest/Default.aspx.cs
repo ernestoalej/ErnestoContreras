@@ -22,13 +22,35 @@ public partial class _Default : System.Web.UI.Page
                 ddlCorresponsales.Items[ddlCorresponsales.Items.Count - 1].Value = corresponsal.id.ToString();
             }
 
-            lblCorresponsalInfo.Text = ddlCorresponsales.SelectedValue.ToString();
+            lblCorresponsal.Text = ddlCorresponsales.SelectedValue.ToString();
+
+            int idCorresponsal;
+            idCorresponsal = Convert.ToInt32(ddlCorresponsales.SelectedValue.ToString());
+
+            obtenerCorresponsalOficinaMaximaLongitud(idCorresponsal);
         }
 
     }
 
     protected void ddlCorresponsales_SelectedIndexChanged(object sender, EventArgs e)
+    {     
+        int idCorresponsal;
+        idCorresponsal = Convert.ToInt32(ddlCorresponsales.SelectedValue.ToString());
+
+        obtenerCorresponsalOficinaMaximaLongitud(idCorresponsal);
+
+    }
+
+
+    public void obtenerCorresponsalOficinaMaximaLongitud(int idCorresponsal )
     {
-        lblCorresponsalInfo.Text = ddlCorresponsales.SelectedValue.ToString();
+
+        WSCorresponsalesClient client = new WSCorresponsalesClient();
+
+        Corresponsal corr = client.obtenerCorresponsalOficinaMaxLong(idCorresponsal);
+
+        lblCorresponsal.Text = corr.nombre;
+
+        lblOficinaLongMax.Text = corr.ofiNombre;
     }
 }   

@@ -13,16 +13,35 @@
   <wsdl:message name="IWSCorresponsales_obtenerCorresponsales_OutputMessage">
     <wsdl:part name="parameters" element="tns:obtenerCorresponsalesResponse" />
   </wsdl:message>
+  <wsdl:message name="IWSCorresponsales_obtenerCorresponsalOficinaMaxLong_InputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerCorresponsalOficinaMaxLong" />
+  </wsdl:message>
+  <wsdl:message name="IWSCorresponsales_obtenerCorresponsalOficinaMaxLong_OutputMessage">
+    <wsdl:part name="parameters" element="tns:obtenerCorresponsalOficinaMaxLongResponse" />
+  </wsdl:message>
   <wsdl:portType name="IWSCorresponsales">
     <wsdl:operation name="obtenerCorresponsales">
       <wsdl:input wsaw:Action="http://tempuri.org/IWSCorresponsales/obtenerCorresponsales" message="tns:IWSCorresponsales_obtenerCorresponsales_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWSCorresponsales/obtenerCorresponsalesResponse" message="tns:IWSCorresponsales_obtenerCorresponsales_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerCorresponsalOficinaMaxLong">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWSCorresponsales/obtenerCorresponsalOficinaMaxLong" message="tns:IWSCorresponsales_obtenerCorresponsalOficinaMaxLong_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWSCorresponsales/obtenerCorresponsalOficinaMaxLongResponse" message="tns:IWSCorresponsales_obtenerCorresponsalOficinaMaxLong_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IWSCorresponsales" type="tns:IWSCorresponsales">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="obtenerCorresponsales">
       <soap:operation soapAction="http://tempuri.org/IWSCorresponsales/obtenerCorresponsales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerCorresponsalOficinaMaxLong">
+      <soap:operation soapAction="http://tempuri.org/IWSCorresponsales/obtenerCorresponsalOficinaMaxLong" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

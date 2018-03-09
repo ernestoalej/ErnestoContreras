@@ -16,7 +16,7 @@ namespace WSCorresponsales
         List<Corresponsal> obtenerCorresponsales();
         
         [OperationContract]
-        Corresponsal obtenerCorresponsalOficinanaMaxLong(int corresponsalID);
+        Corresponsal obtenerCorresponsalOficinaMaxLong(int corresponsalID);
 
     }
 
