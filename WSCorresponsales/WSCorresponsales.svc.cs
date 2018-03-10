@@ -63,24 +63,27 @@ namespace WSCorresponsales
 
         public Corresponsal obtenerCorresponsalOficinaMaxLong(int corresponsalID)
         {
-            string sql = "SELECT TOP 1 " +
-                            "C.COR_CORRESPONSAL_ID, C.COR_NOMBRE, O.OFI_NOMBRE " +
-                            "FROM Corresponsales AS C " +
-                            "INNER JOIN OFICINAS AS O " +
-                                   "ON C.COR_CORRESPONSAL_ID = O.OFI_CORRESPONSAL_ID " +
-                            "WHERE LEN(OFI_NOMBRE) = (SELECT MAX(LEN(OFI_NOMBRE)) FROM OFICINAS WHERE OFICINAS.OFI_CORRESPONSAL_ID = O.OFI_CORRESPONSAL_ID )" +
-                            "AND C.COR_CORRESPONSAL_ID = " + corresponsalID.ToString();
 
-            using (SqlConnection cnn = new SqlConnection(cnnString))
+            try
             {
-                cnn.Open();
-                SqlCommand cmd = new SqlCommand(sql, cnn);
+                string sql = "SELECT TOP 1 " +
+                                "C.COR_CORRESPONSAL_ID, C.COR_NOMBRE, O.OFI_NOMBRE " +
+                                "FROM Corresponsales AS C " +
+                                "INNER JOIN OFICINAS AS O " +
+                                       "ON C.COR_CORRESPONSAL_ID = O.OFI_CORRESPONSAL_ID " +
+                                "WHERE LEN(OFI_NOMBRE) = (SELECT MAX(LEN(OFI_NOMBRE)) FROM OFICINAS WHERE OFICINAS.OFI_CORRESPONSAL_ID = O.OFI_CORRESPONSAL_ID )" +
+                                "AND C.COR_CORRESPONSAL_ID = " + corresponsalID.ToString();
 
-                SqlDataReader dr = cmd.ExecuteReader();
+                using (SqlConnection cnn = new SqlConnection(cnnString))
+                {
+                    cnn.Open();
+                    SqlCommand cmd = new SqlCommand(sql, cnn);
 
-                dr.Read();
+                    SqlDataReader dr = cmd.ExecuteReader();
 
-                Corresponsal corr = new Corresponsal()
+                    dr.Read();
+                    ///////////////////////////////////////////////////////////
+                    Corresponsal corr = new Corresponsal()
                     {
                         id = Convert.ToInt32(dr["COR_CORRESPONSAL_ID"]),
                         nombre = dr["COR_NOMBRE"].ToString(),
@@ -88,9 +91,13 @@ namespace WSCorresponsales
 
                     };
 
-                return corr;
+                    return corr;
+                }
+
+            } catch 
+            {
+                return null;
             }
-    
         }
     }
 }
