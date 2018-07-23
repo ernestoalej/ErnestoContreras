@@ -15,25 +15,25 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        try { 
+        try {
 
-        if (!IsPostBack)
-        {
+            if (!IsPostBack)
+            {
 
-            cargarCorresponsales();
+                cargarCorresponsales();
 
-            //obtener id corresponsal seleccionado
-            
-            int idCorresponsal = Convert.ToInt32(ddlCorresponsales.SelectedValue.ToString());
-                
+                //obtener id corresponsal seleccionado
+
+                int idCorresponsal = Convert.ToInt32(ddlCorresponsales.SelectedValue.ToString());
+
                 //Mostrar tabla de caracteres
-            string nombreOficinaTabla = obtenerCorresponsalOficinaMaximaLongitud(idCorresponsal);        
-            mostrarLetrasVeces(nombreOficinaTabla);
+                string nombreOficinaTabla = obtenerCorresponsalOficinaMaximaLongitud(idCorresponsal);
+                mostrarLetrasVeces(nombreOficinaTabla);
 
-    
-        }
-       } catch (Exception ex)
-        {           
+
+            }
+        } catch (Exception ex)
+        {
             lblInfo.Text = lblInfo.Text + " . " + "<p>Ha ocurrido un error al cargar los corresponsales: (" + ex.Source + "): " + ex.Message + "</p>";
         }
     }
@@ -60,7 +60,7 @@ public partial class _Default : System.Web.UI.Page
             lblCorresponsal.Text = ddlCorresponsales.SelectedValue.ToString();
         } catch
         {
-            lblInfo.Text = "No se han podido cargar los corresponsales, verifique si hay corresponsales registrados o si el servicio se está ejecutando"; 
+            lblInfo.Text = "No se han podido cargar los corresponsales, verifique si hay corresponsales registrados o si el servicio se está ejecutando";
         }
 
     }
@@ -72,8 +72,8 @@ public partial class _Default : System.Web.UI.Page
 
         string nombreOficina = obtenerCorresponsalOficinaMaximaLongitud(idCorresponsal);
 
-         mostrarLetrasVeces(nombreOficina);
-     
+        mostrarLetrasVeces(nombreOficina);
+
     }
 
 
@@ -90,30 +90,30 @@ public partial class _Default : System.Web.UI.Page
 
         // eliminar los espacios y colocar en minuscula.
         nombreOficinaTablaDistinct = nombreOficinaTablaDistinct.Trim().Replace(" ", "").ToLower();
-        
+
         tablaOficina.Rows.Clear();
         tablaOficina.Caption = "";
-                       
+
         // obtener la longitud de la cadena sin caractres repetidos
         int l = nombreOficinaTablaDistinct.Length;
 
         //Crear array de TablaCaracteres para guardar las letras y las veces que aparece repetida.
         TablaCaracteres[] tablaCaracteres = new TablaCaracteres[l];
-        int countCaract=0;
+        int countCaract = 0;
 
         for (int i = 0; i < l; i++)
         {
             string letra = nombreOficinaTablaDistinct.Substring(i, 1);
 
-                //contar veces que aparece la letra en el string
-                long veces = nombreOficinaTabla.LongCount(sletra => sletra.ToString() == letra);
+            //contar veces que aparece la letra en el string
+            long veces = nombreOficinaTabla.LongCount(sletra => sletra.ToString() == letra);
 
-                tablaCaracteres[countCaract] = new TablaCaracteres();
+            tablaCaracteres[countCaract] = new TablaCaracteres();
 
-                tablaCaracteres[countCaract].letra = letra;
-                tablaCaracteres[countCaract].veces = veces.ToString();
-                                
-                //tablaOficina.Caption = tablaOficina.Caption + ", " + tablaCaracteres[countCaract].letra + "=" + tablaCaracteres[countCaract].veces.ToString();
+            tablaCaracteres[countCaract].letra = letra;
+            tablaCaracteres[countCaract].veces = veces.ToString();
+
+            //tablaOficina.Caption = tablaOficina.Caption + ", " + tablaCaracteres[countCaract].letra + "=" + tablaCaracteres[countCaract].veces.ToString();
 
             countCaract++;
 
@@ -126,7 +126,7 @@ public partial class _Default : System.Web.UI.Page
 
     public class TablaCaracteres {
         public string letra { get; set; }
-        public string veces { get; set; }        
+        public string veces { get; set; }
     }
 
     public void tabla(TablaCaracteres[] tablaCaracteres)
@@ -155,14 +155,14 @@ public partial class _Default : System.Web.UI.Page
         tablaOficina.Rows.Add(tableHeaderRow);
 
         for (int filas = 0; filas < tablaCaracteres.Length; filas++)
-        {                   
+        {
             row = new TableRow();
 
             // Columna de Nombre  de la letra      
             cel = new TableCell();
             cel.Text = tablaCaracteres[filas].letra;
             row.Cells.Add(cel);
-                      
+
             // Columna de valor de la letra    
             cel = new TableCell();
             cel.Text = tablaCaracteres[filas].veces;
@@ -173,7 +173,7 @@ public partial class _Default : System.Web.UI.Page
     }
 
 
-    public string obtenerCorresponsalOficinaMaximaLongitud(int idCorresponsal )
+    public string obtenerCorresponsalOficinaMaximaLongitud(int idCorresponsal)
     {
         // Devuelve el nombre y la oficina con mayor número de caracteres
 
@@ -186,4 +186,7 @@ public partial class _Default : System.Web.UI.Page
 
         return corr.ofiNombre;
     }
-}   
+
+
+ }
+ 
